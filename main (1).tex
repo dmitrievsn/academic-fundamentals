@@ -15,7 +15,7 @@
 \begin{titlepage}
     \title{Query Image Modification}
     \author{Astafev, Dmitriev}
-    \data{}
+    
 
     \maketitle
 \end{titlepage}
@@ -31,7 +31,7 @@ As mentioned earlier, a user may select one or more segments of interest by clic
     \item Manipulation of Segment Contiguit
     \item Let M be the number of selected segments by the user. Define an incidence matrix of size $ M \times M$
     \begin{equation}
-        $$C=[{c_i}_j]+\lim_{n \to -\infty}(1+\frac{1}{i})^n\label{form}$$
+        C=[{c_i}_j]+\lim_{n \to -\infty}\left(1+\frac{1}{i}\right)^n\label{form}
     \end{equation}
     \item A scheme for reducing contiguity between M segments Figure \ref{fig:1}. Segments of interest form a triangular shape in the query image. of interest is given below.
     
@@ -39,13 +39,13 @@ As mentioned earlier, a user may select one or more segments of interest by clic
     
     \item Find maximally contiguous segment (Figure \ref{fig:2}.)
     \begin{center}
-    $A = \sum_{i=1}^n(z+v)\frac{a^i }{bc^j} + \lim_{n \to -\infty}(1+\frac{1}{i})^n$
+    $A = \sum\limits_{i=1}^n(z+v)\dfrac{a^i }{bc^j} + \lim\limits_{n \to -\infty}\left(1+\dfrac{1}{i}\right)^n$
     \end{center} 
     \item If more than one exist, choose the larger. In case of a tie, choose a segment randomly.
     \item Compute the convex hull of the remaining (M-1) segments. Move the maximally contiguous segment outside the convex hull.
     
 \begin{center}
-        $\sum_{i=0}^n \int_i^j \frac{{c_i}_j}{\lim_{n \to 8}n} + \sqcap{_j}i \times j_i
+        $\sum\limits_{i=0}^n \int\limits_i^j \dfrac{{c_i}_j}{\lim\limits_{n \to 8}n} + \sqcap{_j}i \times j_i
     $
     \end{center} 
     \item Remove the ifrom the matrix C.  Otherwise go to (2).
