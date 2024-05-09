@@ -1,7 +1,8 @@
-\documentclass{article}
+%\documentclass{acmart}%
+\documentclass{volcanica-template}
+\usepackage{ifthen}
 \usepackage[english]{babel}
 \usepackage{hhline}
-\usepackage{amsmath}
 \usepackage{multirow}
 \usepackage{graphicx}
 \graphicspath{ {./images/} }
@@ -29,27 +30,27 @@ As mentioned earlier, a user may select one or more segments of interest by clic
 \begin{enumerate}
     \item  	Multiple Segment Modification 
     \item   The purpose behind multiple-segment modification is to estimate the relative importance of the spatial relationships, and query expansion, if needed. This helps in determining what best describes the user perception in a multiple segment-query. Independent modifications of features of each segment generate a large number of modified images. The user will not have the patience for providing feedback on these modified images. Such mindless modifications will even confuse the user leading to incoherent feedback on his part. Additionally, many of the modified images will not even help in estimating the retrieval parameters. So we utilize the concept of a semantic object for pruning the set of modifications. Frequently, when the user selects multiple segments of interest, these form a semantic object, where different segments satisfy some spatial constraints. A semantic object represents a group of segments whose relative shape, size and spatial organization as a whole defines the user's notion of query object. For example, when a user selects the multiple segments of a multi-color flag, generating independent modifications for these segments is not at all efficient for learning the retrieval parameters.(Form \ref{form})
-    \item Manipulation of Segment Contiguit
+    \item Manipulation of Segment Contiguity
     \item Let M be the number of selected segments by the user. Define an incidence matrix of size $ M \times M$
     \begin{equation}
         C=[{c_i}_j]+\lim_{n \to -\infty}\left(1+\frac{1}{i}\right)^n\label{form}
     \end{equation}
     \item A scheme for reducing contiguity between M segments Figure \ref{fig:1}. Segments of interest form a triangular shape in the query image. of interest is given below.
     
-    \item Identify any noncontiguous segment i by finding. Remove i-th row and column of the incident matrix C. Decrement M.
+    \item Identify any noncontinuous segment $i$ by finding. Remove $i$-th row and column of the incident matrix $C$. Decrement $M$.
     
     \item Find maximally contiguous segment (Figure \ref{fig:2}.)
     \begin{center}
     $A = \sum\limits_{i=1}^n(z+v)\dfrac{a^i }{bc^j} + \lim\limits_{n \to -\infty}\left(1+\dfrac{1}{i}\right)^n$
     \end{center} 
     \item If more than one exist, choose the larger. In case of a tie, choose a segment randomly.
-    \item Compute the convex hull of the remaining (M-1) segments. Move the maximally contiguous segment outside the convex hull.
+    \item Compute the convex hull of the remaining ($M-1$) segments. Move the maximally contiguous segment outside the convex hull.
     
 \begin{center}
         $\sum\limits_{i=0}^n \int\limits_i^j \dfrac{{c_i}_j}{\lim\limits_{n \to 8}n} + \sqcap{_j}i \times j_i
     $
     \end{center} 
-    \item Remove the ifrom the matrix C.  Otherwise go to (2).
+    \item Remove the i from the matrix C.  Otherwise go to (2).
 \end{enumerate}
 \begin{figure}
     \begin{center}
@@ -74,7 +75,7 @@ As mentioned earlier, a user may select one or more segments of interest by clic
 \subsection*{Steps:}
 \begin{itemize}
     \item 	Segments of interest form a triangular shape in the query image. (Table \ref{tbl:1})
-    \item 	Selected segments scaled down about their centroids.
+    \item 	Selected segments scaled down about their centrists.
     \item 	Segments scaled down about their contact points with the maximally contiguous segment.
 \end{itemize}
 
@@ -86,12 +87,12 @@ As mentioned earlier, a user may select one or more segments of interest by clic
          
          &\multicolumn{4}{c}{Relevance feedback}& \multicolumn{3}{c}{Intra-query } &\\
          \hline
-       Interation & 0 &1 &3 &6 &0 &1 &2 &3 \\
+       Interaction & 0 &1 &3 &6 &0 &1 &2 &3 \\
        \hline
        N &13 &18 &20 &23 &19 &22 &22 &23 \\
        \hline
     \end{tabular}
-    \captionof{table}{Performance comparison of intra-query learning and relevance feedback}
+    \captionof{table}{Performance comparison of intro-query learning and relevance feedback}
     \label{tbl:1}
     \end{center}
 
